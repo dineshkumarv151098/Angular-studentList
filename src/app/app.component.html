@@ -1,0 +1,39 @@
+<div class="container-fluid">
+  <div class="row" style="background-color: rgb(226, 225, 241)">
+    <div class="col-sm-5">
+      <div style="padding: 5px">
+        <img
+          src="../assets/images/Academy_Logo.png"
+          height="50px"
+          style="background-color: rgb(242, 245, 247); border-radius: 70%"
+        />
+      </div>
+    </div>
+    <div class="col-sm-7" style="color: rgb(5, 5, 5);padding-top: 5px;font-size: 35px;letter-spacing: 3px;font-family: 'Times New Roman', Times, serif;"><p style="margin: 0px;">WELCOME</p></div>
+  </div>
+  <div class="row" style="background-color:#343a40;height: 40px;">
+    <div class="col">
+      <button class="btn btn-primary btn-sm" routerLink="/main" routerLinkActive="active">
+        Home
+      </button>
+      <button class="btn btn-primary btn-sm" routerLink="/studentList" routerLinkActive="active">
+        Student List
+      </button>
+      <ng-container *ngIf="!isLoggedIn">
+        <button class="btn btn-primary btn-sm" routerLink="/logIn" routerLinkActive="active"  style="float: right;" >
+          <i class='fas fa-user-alt' style='font-size:10px;color:rgb(13, 8, 83);padding-right: 1px;' ></i>
+        Login
+      </button>
+    </ng-container>
+      <ng-container *ngIf="isLoggedIn">
+        <span class="hello">Hello! {{sessionUsername}}</span>
+      <button class="btn btn-primary btn-sm" style="float: right;" (click)="logOut()">
+        <i class='fas fa-user-check' style='font-size:10px;color:rgb(13, 8, 83);padding-right: 1px;'></i>
+        Logout
+      </button>
+    </ng-container>
+    </div>
+
+  </div>
+  <router-outlet></router-outlet>
+</div>
